@@ -4,13 +4,12 @@ namespace App\Blades;
 
 use Route;
 use App\Models\Menu;
-use Illuminate\Support\Facades\Blade;
 
 class MenuBlade
 {
     public static function boot()
     {
-        Blade::if ('menu',
+        \Illuminate\Support\Facades\Blade::if ('menu',
             function(Menu $menu) {
                 return Route::has($menu->slug)
                     ? auth()->user()->can($menu->slug)

@@ -5,7 +5,7 @@
 @section('body')
     <div class="wrapper">
         <header class="main-header">
-            <a href="index2.html" class="logo">
+            <a href="{{ route('admin.index') }}" class="logo">
                 <span class="logo-mini"><b>T</b>e</span>
                 <span class="logo-lg"><b>T</b>ravel</span>
             </a>
