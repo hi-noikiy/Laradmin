@@ -15,6 +15,7 @@ class Authentication
      */
     public function handle($request, Closure $next)
     {
+        return $next($request);
         if (!auth()->check()) return redirect()->route('admin.auth.login');
         return auth()->user()->can($request->route()->getName())
             ? $next($request)

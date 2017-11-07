@@ -60,7 +60,7 @@ var Applocation = {
             transitionIn: 'fadeInDown',
             zindex: 9999999999999,
             onClosed: () => {
-                if (url !== null) return to(url)
+                if (url !== null) return typeof url == 'function' ? url() : to(url)
             }
         })
 
@@ -69,7 +69,7 @@ var Applocation = {
             transitionIn: 'fadeInDown',
             zindex: 9999999999999,
             onClosed: () => {
-                if (url !== null) return to(url)
+                if (url !== null) return typeof url == 'function' ? url() : to(url)
             }
         })
 

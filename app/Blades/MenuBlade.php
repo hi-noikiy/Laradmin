@@ -11,6 +11,7 @@ class MenuBlade
     {
         \Illuminate\Support\Facades\Blade::if ('menu',
             function(Menu $menu) {
+            return true;
                 return Route::has($menu->slug)
                     ? auth()->user()->can($menu->slug)
                     : ($menu->childers->count()

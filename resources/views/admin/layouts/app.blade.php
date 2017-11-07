@@ -15,6 +15,11 @@
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="{{ route('admin.clear') }}" id="cache-clear">
+                                <i class="fa fa-bolt"></i>
+                            </a>
+                        </li>
                         <li class="dropdown messages-menu">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope-o"></i>
@@ -40,8 +45,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
-                                    <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="img-circle"
-                                         alt="User Image">
+                                    <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="img-circle">
                                     <p>
                                         Alexander Pierce
                                         <small>Member since Nov. 2012</small>
@@ -52,7 +56,8 @@
                                         <a href="javascript:void(0);" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{{ route('admin.auth.logout') }}" id="logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="{{ route('admin.auth.logout') }}" id="logout"
+                                           class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -92,6 +97,14 @@
             event.preventDefault()
             $.get($(this).attr('href'), {}, respond => {
                 window.location.href = '{{ route('admin.auth.login') }}'
+            })
+        })
+        $('#cache-clear').on('click', function (event) {
+            event.preventDefault()
+            $.get($(this).attr('href'), {}, respond => {
+                succeed(respond.message, () => {
+                    window.location.reload()
+                })
             })
         })
     </script>
