@@ -21,7 +21,12 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        <td>{{ $user->id }}</td>
+                        <td>
+                            <label>
+                                <input type="checkbox" value="{{ $user->id }}" class="table-check">
+                                {{ $user->id }}
+                            </label>
+                        </td>
                         <td>
                             <a href="{{ route('admin.users.edit',['user' => $user->id]) }}">{{ $user->name }}</a>
                         </td>
@@ -46,6 +51,8 @@
             </table>
         </div>
         <div class="box-footer clearfix">
+            <button class="btn btn-primary select-all"><i class="fa fa-check"></i> 全选/反选</button>
+            <button class="btn btn-danger btn-batch" batch-url="{{ route('admin.users.batch') }}"><i class="fa fa-trash-o"></i> 删除选中</button>
             {{ $users->links() }}
             <p class="total">共计 {{ $users->total() }} 条数据，每页显示 10 条。</p>
         </div>

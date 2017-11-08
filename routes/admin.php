@@ -25,11 +25,15 @@ Route::name('admin.')->group(function() {
         function($router) {
             $router->get('/', 'IndexController@index')->name('index');
             $router->get('/clear', 'IndexController@clear')->name('clear');
+
             $router->resource('menus', 'MenusController');
+
             $router->delete('permissions/batch', 'PermissionsController@batch')->name('permissions.batch');
             $router->resource('permissions', 'PermissionsController');
+
             $router->delete('roles/batch', 'RolesController@batch')->name('roles.batch');
             $router->resource('roles', 'RolesController');
+
             $router->delete('users/batch', 'UsersController@batch')->name('users.batch');
             $router->resource('users', 'UsersController');
         }

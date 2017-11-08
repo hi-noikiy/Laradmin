@@ -19,6 +19,9 @@ return [
                 'email'    => 'required|email',
                 'password' => 'between:6,20|nullable',
             ],
+            'batch'  => [
+                'id' => 'array|nullable',
+            ],
         ],
         'menus'       => [
             'store'  => [

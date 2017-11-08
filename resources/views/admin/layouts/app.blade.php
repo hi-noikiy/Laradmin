@@ -63,7 +63,6 @@
             </section>
         </aside>
         <div class="content-wrapper" id="main">
-            @include('admin.layouts.breadcrumb')
             <section class="content">
                 @yield('main')
             </section>

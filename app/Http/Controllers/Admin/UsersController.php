@@ -110,4 +110,27 @@ class UsersController extends Controller
         $user->delete();
         return succeed('删除用户成功。');
     }
+
+    /**
+     * 批量删除用户
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function batch(Request $request)
+    {
+        try {
+
+            User::whereIn('id', array_first($this->validator('admin.permissions.batch')))
+                ->get()
+                ->each(function($user) {
+                    $user->roles()->detach();
+                    $user->delete();
+                });
+
+            return succeed('批量删除成功。');
+        } catch (ValidatorException $exception) {
+            return failed($exception->getMessage());
+        }
+    }
 }

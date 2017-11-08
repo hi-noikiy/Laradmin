@@ -111,13 +111,14 @@ class RolesController extends Controller
     }
 
     /**
-     * 批量删除
+     * 批量删除角色
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function batch()
     {
         try {
             Role::whereIn('id', array_first($this->validator('admin.roles.batch')))
-                ->with('permissions', 'users')
                 ->get()
                 ->each(function($role) {
                     $role->permissions()->detach();

@@ -63,7 +63,7 @@ function poem()
  * @param $slug
  * @return string
  */
-function linker($slug)
+function linker($slug = null)
 {
     return \Route::has($slug) ? route($slug) : $slug;
 }
@@ -74,7 +74,12 @@ function linker($slug)
  * @param $config_name
  * @return \Illuminate\Config\Repository|mixed
  */
-function knot($config_name)
+function knot($config_name = null)
 {
     return config("knots.{$config_name}");
+}
+
+function breadcrumb($router_name = null)
+{
+
 }
