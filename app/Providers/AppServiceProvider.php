@@ -5,6 +5,7 @@ namespace App\Providers;
 use Carbon\Carbon;
 use App\Blades\Blade;
 use App\Observers\Observer;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,9 +17,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Blade::register();
+
         Observer::register();
+
         Carbon::setLocale('zh');
+
+        Schema::defaultStringLength(191);
     }
 
     /**
