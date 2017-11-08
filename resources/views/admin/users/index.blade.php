@@ -37,13 +37,10 @@
                             <a class="btn btn-success" href="{{ route('admin.users.edit',['user' => $user->id]) }}">
                                 <i class="fa fa-pencil-square-o"></i> 编辑
                             </a>
-                            <form action="{{ route('admin.users.destroy',['user' => $user->id]) }}" class="destroy">
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fa fa-trash-o"></i>
-                                    删除
-                                </button>
-                                {{ method_field('DELETE') }}
-                            </form>
+                            <a href="{{ route('admin.users.destroy',['user' => $user->id]) }}" class="btn btn-danger destroy">
+                                <i class="fa fa-trash-o"></i>
+                                删除
+                            </a>
                         </td>
                     </tr>
                 @endforeach

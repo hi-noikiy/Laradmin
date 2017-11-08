@@ -40,14 +40,10 @@
                                href="{{ route('admin.permissions.edit',['permission' => $permission->id]) }}">
                                 <i class="fa fa-pencil-square-o"></i> 编辑
                             </a>
-                            <form action="{{ route('admin.permissions.destroy',['permission' => $permission->id]) }}"
-                                  class="destroy">
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fa fa-trash-o"></i>
-                                    删除
-                                </button>
-                                {{ method_field('DELETE') }}
-                            </form>
+                            <a href="{{ route('admin.permissions.destroy',['permission' => $permission->id]) }}" class="btn btn-danger destroy">
+                                <i class="fa fa-trash-o"></i>
+                                删除
+                            </a>
                         </td>
                     </tr>
                 @endforeach

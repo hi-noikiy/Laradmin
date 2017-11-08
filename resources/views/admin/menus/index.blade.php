@@ -31,7 +31,8 @@
                         <td>{{ $menu->weight }}</td>
                         <td>
                             @if($menu->childers->count())
-                                <a href="javascript:void(0);" data-toggle="modal" data-target="#childers{{ $menu->id }}" style="padding: 15px">{{ $menu->childers->count() }}</a>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#childers{{ $menu->id }}"
+                                   style="padding: 15px">{{ $menu->childers->count() }}</a>
                             @else
                                 {{ $menu->childers->count() }}
                             @endif
@@ -42,13 +43,10 @@
                             <a class="btn btn-success" href="{{ route('admin.menus.edit',['menu' => $menu->id]) }}">
                                 <i class="fa fa-pencil-square-o"></i> 编辑
                             </a>
-                            <form action="{{ route('admin.menus.destroy',['menu' => $menu->id]) }}" class="destroy">
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fa fa-trash-o"></i>
-                                    删除
-                                </button>
-                                {{ method_field('DELETE') }}
-                            </form>
+                            <a href="{{ route('admin.menus.destroy',['menu' => $menu->id]) }}" class="btn btn-danger destroy">
+                                <i class="fa fa-trash-o"></i>
+                                删除
+                            </a>
                         </td>
                     </tr>
                 @endforeach

@@ -10,10 +10,9 @@ var Applocation = {
 
         $('[data-toggle="tooltip"]').tooltip()
 
-        $('.destroy').on('submit', function () {
+        $('.destroy').on('click', function (event) {
             event.preventDefault()
-            var form = $(this)
-            var action = form.attr('action')
+            var url = $(this).attr('href')
             iziToast.question({
                 timeout: 10000,
                 close: false,
@@ -30,11 +29,15 @@ var Applocation = {
                 buttons: [
                     ['<button><b>确定</b></button>', function (instance, toast) {
                         instance.hide(toast, {transitionOut: 'fadeOut'}, 'button')
-                        toSubmit({
-                            el: form,
-                            method: 'DELETE',
-                            action: action,
-                            jump: window.location.href
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            data: {_method: 'delete'},
+                            success: respond => {
+                                return respond.status
+                                    ? succeed(respond.message, window.location.href)
+                                    : failed(respond.message)
+                            }
                         })
                     }],
                     ['<button>取消</button>', function (instance, toast) {
