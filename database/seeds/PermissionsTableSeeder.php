@@ -12,11 +12,11 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $routers   = array_values((array) Route::getRoutes())[2];
         $data      = [];
+
         $timestamp = Carbon::now();
 
-        foreach ($routers as $index => $value) {
+        foreach (array_values((array) Route::getRoutes())[2] as $index => $value) {
             $data[] = [
                 'name'       => $index,
                 'alias'      => $index,

@@ -13,7 +13,10 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        $role = Role::create(['alias' => 'Admin', 'name' => 'admin', 'describe' => '后台管理员']);
-        $role->syncPermissions(Permission::pluck('name')->toArray());
+        Role::create(
+            ['alias' => 'Admin', 'name' => 'admin', 'describe' => '后台管理员']
+        )->syncPermissions(
+            Permission::pluck('name')->toArray()
+        );
     }
 }
