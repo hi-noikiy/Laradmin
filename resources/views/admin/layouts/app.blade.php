@@ -6,8 +6,8 @@
     <div class="wrapper">
         <header class="main-header">
             <a href="{{ route('admin.index') }}" class="logo">
-                <span class="logo-mini"><b>T</b>e</span>
-                <span class="logo-lg"><b>Travel</b></span>
+                <span class="logo-mini"><b>T</b>a</span>
+                <span class="logo-lg"><b>{{ config('app.name') }}</b></span>
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -55,7 +55,7 @@
                         <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p>{{ auth()->user()->name }}</p>
                         <a href="javascript:void(0);"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
