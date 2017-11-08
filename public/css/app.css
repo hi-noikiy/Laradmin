@@ -20068,13 +20068,15 @@ body .wrapper .content-wrapper .content .box .box-body .form-group .check-box {
 
 html .wrapper .content-wrapper .content .box .box-body .form-group .check-box label,
 body .wrapper .content-wrapper .content .box .box-body .form-group .check-box label {
-  display: inline-block;
-  height: 24px;
-  line-height: 24px;
-  vertical-align: middle;
   width: 33%;
+  height: 24px;
+  color: #667c99;
   overflow: hidden;
+  line-height: 24px;
+  white-space: nowrap;
   margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 html .wrapper .content-wrapper .content .box .box-body .form-group .check-box label .form-control,
@@ -20274,5 +20276,27 @@ body .footer a {
 html .footer .fa,
 body .footer .fa {
   margin: 0 5px;
+}
+
+html .tooltip .tooltip-arrow,
+body .tooltip .tooltip-arrow {
+  border-top-color: rgba(70, 76, 91, 0.9) !important;
+}
+
+html .tooltip .tooltip-inner,
+body .tooltip .tooltip-inner {
+  max-width: 250px;
+  min-height: 34px;
+  padding: 8px 12px;
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  background-color: rgba(70, 76, 91, 0.9);
+  border-radius: 4px;
+  font-size: 14px;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 

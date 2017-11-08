@@ -10,15 +10,16 @@ class MenuBlade
     public static function boot()
     {
         \Illuminate\Support\Facades\Blade::if ('menu',
-            function(Menu $menu) {
-            return true;
-                return Route::has($menu->slug)
-                    ? auth()->user()->can($menu->slug)
-                    : ($menu->childers->count()
-                        ? (boolean) $menu->childers->first(function($childer) {
-                            return auth()->user()->can($childer->slug);
-                        })
-                        : false);
+            function(Menu $menu) : bool {
+                return knot('authentication')
+                    ? Route::has($menu->slug)
+                        ? auth()->user()->can($menu->slug)
+                        : ($menu->childers->count()
+                            ? (boolean) $menu->childers->first(function($childer) {
+                                return auth()->user()->can($childer->slug);
+                            })
+                            : false)
+                    : true;
             }
         );
     }

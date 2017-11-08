@@ -15,12 +15,14 @@ class Authentication
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
-        if (!auth()->check()) return redirect()->route('admin.auth.login');
-        return auth()->user()->can($request->route()->getName())
-            ? $next($request)
-            : ($request->ajax()
-                ? failed('无权进行此操作！')
-                : response()->view('admin.errors.unauthentication'));
+        return auth()->check()
+            ? knot('authentication')
+                ? auth()->user()->can($request->route()->getName())
+                    ? $next($request)
+                    : $request->ajax()
+                        ? failed('无权进行此操作！')
+                        : response()->view('admin.errors.unauthentication')
+                : $next($request)
+            : redirect()->route('admin.auth.login');
     }
 }

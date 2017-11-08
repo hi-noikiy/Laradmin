@@ -24,7 +24,7 @@
                     <label>权限</label>
                     <div class="check-box">
                         @foreach($permissions as $permission)
-                            <label>
+                            <label data-toggle="tooltip" title="{{ $permission->name }}">
                                 <input type="checkbox" name="permissions[]" value="{{ $permission->name }}" class="form-control">{{ $permission->alias }}
                             </label>
                         @endforeach

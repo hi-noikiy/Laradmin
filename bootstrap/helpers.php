@@ -47,12 +47,34 @@ function hommization($date)
         : \Carbon\Carbon::parse($date)->diffForHumans();
 }
 
+/**
+ * 随机返回设定的诗句
+ *
+ * @return mixed
+ */
 function poem()
 {
     return array_random(config('poems'));
 }
 
+/**
+ * 检查路由是否存在，依检查结果返回 link 或 slug
+ *
+ * @param $slug
+ * @return string
+ */
 function linker($slug)
 {
     return \Route::has($slug) ? route($slug) : $slug;
+}
+
+/**
+ * 获取自定义配置
+ *
+ * @param $config_name
+ * @return \Illuminate\Config\Repository|mixed
+ */
+function knot($config_name)
+{
+    return config("knots.{$config_name}");
 }

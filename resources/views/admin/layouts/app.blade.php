@@ -7,7 +7,7 @@
         <header class="main-header">
             <a href="{{ route('admin.index') }}" class="logo">
                 <span class="logo-mini"><b>T</b>e</span>
-                <span class="logo-lg"><b>T</b>ravel</span>
+                <span class="logo-lg"><b>Travel</b></span>
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -16,39 +16,19 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="{{ route('admin.clear') }}" id="cache-clear">
-                                <i class="fa fa-bolt"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown messages-menu">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-success">4</span>
-                            </a>
-                        </li>
-                        <li class="dropdown notifications-menu">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                        </li>
-                        <li class="dropdown tasks-menu">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag-o"></i>
-                                <span class="label label-danger">9</span>
-                            </a>
+                            <a href="{{ route('admin.clear') }}" id="cache-clear"><i class="fa fa-bolt"></i></a>
                         </li>
                         <li class="dropdown user user-menu">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="user-image">
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs">{{ auth()->user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
                                     <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="img-circle">
                                     <p>
-                                        Alexander Pierce
-                                        <small>Member since Nov. 2012</small>
+                                        {{ auth()->user()->name }}
+                                        <small>注册于 {{ auth()->user()->created_at }}</small>
                                     </p>
                                 </li>
                                 <li class="user-footer">
@@ -56,8 +36,7 @@
                                         <a href="javascript:void(0);" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{{ route('admin.auth.logout') }}" id="logout"
-                                           class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="{{ route('admin.auth.logout') }}" id="logout" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> 注销</a>
                                     </div>
                                 </li>
                             </ul>
@@ -67,7 +46,6 @@
                         </li>
                     </ul>
                 </div>
-
             </nav>
         </header>
         <aside class="main-sidebar">
@@ -93,12 +71,20 @@
         @include('admin.layouts.footer')
     </div>
     <script>
+
+        /**
+         * 退出登录
+         */
         $('#logout').on('click', function (event) {
             event.preventDefault()
             $.get($(this).attr('href'), {}, respond => {
                 window.location.href = '{{ route('admin.auth.login') }}'
             })
         })
+
+        /**
+         * 清除缓存
+         */
         $('#cache-clear').on('click', function (event) {
             event.preventDefault()
             $.get($(this).attr('href'), {}, respond => {
