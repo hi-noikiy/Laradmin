@@ -33,16 +33,17 @@
                                             <td>{{ $childer->created_at }}</td>
                                             <td>{{ $childer->updated_at }}</td>
                                             <td>
-                                                <a class="btn btn-success" href="{{ route('admin.menus.edit',['menu' => $childer->id]) }}" onclick="hideModal('childers{{ $menu->id }}')">
-                                                    <i class="fa fa-pencil-square-o"></i> 编辑
-                                                </a>
-                                                <form action="{{ route('admin.menus.destroy',['menu' => $childer->id]) }}" class="destroy" onclick="hideModal('childers{{ $menu->id }}')">
-                                                    <button type="submit" class="btn btn-danger">
+                                                @can('admin.menus.edit')
+                                                    <a class="btn btn-success" href="{{ route('admin.menus.edit',['menu' => $childer->id]) }}" onclick="hideModal('childers{{ $menu->id }}')">
+                                                        <i class="fa fa-pencil-square-o"></i> 编辑
+                                                    </a>
+                                                @endcan
+                                                @can('admin.menus.destroy')
+                                                    <a href="{{ route('admin.menus.destroy',['menu' => $childer->id]) }}" class="btn btn-danger destroy" onclick="hideModal('childers{{ $menu->id }}')">
                                                         <i class="fa fa-trash-o"></i>
                                                         删除
-                                                    </button>
-                                                    {{ method_field('DELETE') }}
-                                                </form>
+                                                    </a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

@@ -15,9 +15,11 @@
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="{{ route('admin.clear') }}" id="cache-clear"><i class="fa fa-bolt"></i></a>
-                        </li>
+                        @can('admin.clear')
+                            <li class="dropdown">
+                                <a href="{{ route('admin.clear') }}" id="cache-clear"><i class="fa fa-bolt"></i></a>
+                            </li>
+                        @endcan
                         <li class="dropdown user user-menu">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="user-image">
@@ -33,10 +35,18 @@
                                 </li>
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="{{ route('admin.users.edit',['user' => auth()->user()->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil-square-o"></i> 编辑</a>
+                                        @can('admin.users.edit')
+                                            <a href="{{ route('admin.users.edit',['user' => auth()->user()->id]) }}"
+                                               class="btn btn-default btn-flat"><i class="fa fa-pencil-square-o"></i> 编辑
+                                            </a>
+                                        @endcan
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{{ route('admin.auth.logout') }}" id="logout" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> 注销</a>
+                                        @can('admin.auth.logout')
+                                            <a href="{{ route('admin.auth.logout') }}" id="logout"
+                                               class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> 注销
+                                            </a>
+                                        @endcan
                                     </div>
                                 </li>
                             </ul>
