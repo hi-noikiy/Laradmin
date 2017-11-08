@@ -33,7 +33,7 @@
                                 </li>
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="javascript:void(0);" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="{{ route('admin.users.edit',['user' => auth()->user()->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil-square-o"></i> 编辑</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{{ route('admin.auth.logout') }}" id="logout" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> 注销</a>

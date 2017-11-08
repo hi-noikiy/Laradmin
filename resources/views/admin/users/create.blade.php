@@ -4,7 +4,7 @@
     <div class="box box-primary box-half">
         <div class="box-header">
             <a href="{{ route('admin.users.index') }}" class="btn btn-back"><i class="fa fa-arrow-left"></i></a>
-            <h5 class="box-title">添加菜单</h5>
+            <h5 class="box-title">添加用户</h5>
         </div>
         <div class="box-body">
             <form onsubmit="task(this)">
