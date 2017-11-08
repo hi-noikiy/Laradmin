@@ -13,16 +13,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $roles = Role::pluck('name')->toArray();
-
-        $needs = [
-            'name'     => 'admin',
-            'email'    => 'admin@admin.com',
-            'password' => '123456',
-        ];
-
-        $user = User::create($needs);
-
-        $user->syncRoles($roles);
+        User::create(
+            [
+                'name'     => 'admin',
+                'email'    => 'admin@admin.com',
+                'password' => '123456',
+            ]
+        )->syncRoles(Role::pluck('name')->toArray());
     }
 }
