@@ -27,7 +27,7 @@
                 @foreach($menus as $menu)
                     <tr>
                         <td>{{ $menu->id }}</td>
-                        <td><a href="{{ route('admin.menus.edit',['menu' => $menu->id]) }}">{{ $menu->name }}</a></td>
+                        <td>{{ $menu->name }}</td>
                         <td><i data-toggle="tooltip" title="{{ $menu->icon }}" class="fa {{ $menu->icon }}"/></td>
                         <td>{{ $menu->slug }}</td>
                         <td>{{ $menu->weight }}</td>
