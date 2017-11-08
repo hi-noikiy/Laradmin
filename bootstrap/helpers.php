@@ -74,12 +74,7 @@ function linker($slug = null)
  * @param $config_name
  * @return \Illuminate\Config\Repository|mixed
  */
-function knot($config_name = null)
+function laradmin($config_name = null)
 {
-    return config("knots.{$config_name}");
-}
-
-function breadcrumb($router_name = null)
-{
-
+    return config("laradmin.{$config_name}");
 }

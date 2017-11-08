@@ -11,14 +11,14 @@ class MenuBlade
     {
         \Illuminate\Support\Facades\Blade::if ('menu',
             function(Menu $menu) : bool {
-                return knot('authentication')
-                    ? Route::has($menu->slug)
+                return laradmin('authentication')
+                    ? (Route::has($menu->slug)
                         ? auth()->user()->can($menu->slug)
-                        : ($menu->childers->count()
+                        : (($menu->childers->count()
                             ? (boolean) $menu->childers->first(function($childer) {
                                 return auth()->user()->can($childer->slug);
                             })
-                            : false)
+                            : false)))
                     : true;
             }
         );

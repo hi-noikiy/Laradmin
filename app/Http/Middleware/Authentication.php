@@ -16,13 +16,13 @@ class Authentication
     public function handle($request, Closure $next)
     {
         return auth()->check()
-            ? knot('authentication')
-                ? auth()->user()->can($request->route()->getName())
+            ? (laradmin('authentication')
+                ? (auth()->user()->can($request->route()->getName())
                     ? $next($request)
-                    : $request->ajax()
+                    : ($request->ajax()
                         ? failed('无权进行此操作！')
-                        : response()->view('admin.errors.unauthentication')
-                : $next($request)
+                        : response()->view('admin.errors.unauthentication')))
+                : $next($request))
             : redirect()->route('admin.auth.login');
     }
 }
