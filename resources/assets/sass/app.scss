@@ -185,6 +185,29 @@ html,body {
               border-radius: 0px;
               margin-top: 8px;
             }
+            .btn-group {
+              .dropdown-menu {
+                min-width: 110px;
+                box-shadow: 0 5px 20px rgba(0,34,77,.1);
+                border: 1px solid #e7eaf1;
+                border-radius: 4px;
+                li {
+                  a {
+                    height: 36px;
+                    line-height: 36px;
+                    color: #262626;
+                    padding: 0 20px;
+                    &:hover {
+                      color: #7a8599;
+                      background: #f4f8fb;
+                    }
+                    .fa {
+                      color: #9fadc7;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
         .box-half {
