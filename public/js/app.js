@@ -116,10 +116,12 @@ var Applocation = {
             })
         }
 
+        // 全选
         $('.select-all').on('click', function () {
             $('.table-check').click()
         })
 
+        // 批量删除
         $('.btn-batch').on('click', function () {
             var url = $(this).attr('batch-url')
             iziToast.question({
@@ -158,6 +160,28 @@ var Applocation = {
                         instance.hide(toast, {transitionOut: 'fadeOut'}, 'button')
                     }]
                 ]
+            })
+        })
+
+        /**
+         * 退出登录
+         */
+        $('#logout').on('click', function (event) {
+            event.preventDefault()
+            $.get($(this).attr('href'), {}, respond => {
+                window.location.reload()
+            })
+        })
+
+        /**
+         * 清除缓存
+         */
+        $('#cache-clear').on('click', function (event) {
+            event.preventDefault()
+            $.get($(this).attr('href'), {}, respond => {
+                succeed(respond.message, () => {
+                    window.location.reload()
+                })
             })
         })
     }

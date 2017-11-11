@@ -1474,7 +1474,7 @@ a {
 
 .input-group .input-group-addon {
   border-radius: 0;
-  border-color: #d2d6de;
+  border-color: transparent;
   background-color: #fff;
 }
 
@@ -6089,7 +6089,7 @@ table.text-center {
     }
     &.active > a {
       color: #fff;
-      background-color: #9c27b0;
+      background-color: #00bcd4;
       border-radius: 3px;
       box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
     }
@@ -6101,7 +6101,7 @@ table.text-center {
         border-radius: 3px;
         a {
           &:hover {
-            color: #9c27b0;
+            color: #00bcd4;
           }
         }
       }
@@ -6110,7 +6110,7 @@ table.text-center {
           background-color: rgba(200, 200, 200, 0.2);
           color: #3C4858;
           box-shadow: none;
-          color: #9c27b0 !important;
+          color: #00bcd4 !important;
         }
       }
     }

@@ -3,6 +3,9 @@
 @section('main')
     <div class="box">
         <div class="box-header">
+            <div class="table-icon">
+                <i class="fa fa-table"></i>
+            </div>
             <h5 class="box-title">菜单管理</h5>
             @can('admin.menus.create')
                 <a class="btn btn-sm btn-info pull-right" href="{{ route('admin.menus.create') }}"><i class="fa fa-plus"></i>添加</a>

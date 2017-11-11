@@ -57,15 +57,7 @@
         <div class="box-footer clearfix">
             @can('admin.users.batch')
                 <button class="btn btn-info btn-sm select-all"><i class="fa fa-check"></i> 全选</button>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-info">操作</button>
-                    <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0);" batch-url="{{ route('admin.users.batch') }}"><i class="fa fa-trash-o"></i> 删除</a></li>
-                    </ul>
-                </div>
+                <a batch-url="{{ route('admin.users.batch') }}" href="javascript:void(0);" class="btn btn-danger btn-sm btn-batch"><i class="fa fa-trash-o"></i> 删除</a>
             @endcan
             {{ $users->links() }}
             <p class="total">共计 {{ $users->total() }} 条数据，每页显示 10 条。</p>

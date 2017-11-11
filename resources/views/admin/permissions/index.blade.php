@@ -3,6 +3,9 @@
 @section('main')
     <div class="box">
         <div class="box-header">
+            <div class="table-icon">
+                <i class="fa fa-table"></i>
+            </div>
             <h5 class="box-title">权限管理</h5>
             @can('admin.permissions.create')
                 <a class="btn btn-info btn-sm pull-right" href="{{ route('admin.permissions.create') }}"><i class="fa fa-plus"></i>添加</a>
@@ -59,15 +62,7 @@
         <div class="box-footer clearfix">
             @can('admin.permissions.batch')
                 <button class="btn btn-info btn-sm select-all"><i class="fa fa-check"></i> 全选</button>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-info">操作</button>
-                    <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0);" batch-url="{{ route('admin.permissions.batch') }}"><i class="fa fa-trash-o"></i> 删除</a></li>
-                    </ul>
-                </div>
+                <a batch-url="{{ route('admin.permissions.batch') }}" href="javascript:void(0);" class="btn btn-danger btn-sm btn-batch"><i class="fa fa-trash-o"></i> 删除</a>
             @endcan
             {{ $permissions->links() }}
             <p class="total">共计 {{ $permissions->total() }} 条数据，每页显示 10 条。</p>

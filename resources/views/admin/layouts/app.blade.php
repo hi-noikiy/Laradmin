@@ -27,8 +27,7 @@
                                                 class="fa fa-cog"></i>设置</a></li>
                             @endcan
                             @can('admin.auth.logout')
-                                <li><a href="{{ route('admin.auth.logout') }}" id="logout"><i
-                                                class="fa fa-sign-out"></i> 注销</a></li>
+                                <li><a href="{{ route('admin.auth.logout') }}" id="logout"><i class="fa fa-sign-out"></i> 注销</a></li>
                             @endcan
                         </ul>
                     </li>
@@ -47,28 +46,4 @@
         </div>
         @include('admin.layouts.footer')
     </div>
-    <script>
-
-        /**
-         * 退出登录
-         */
-        $('#logout').on('click', function (event) {
-            event.preventDefault()
-            $.get($(this).attr('href'), {}, respond => {
-                window.location.href = '{{ route('admin.auth.login') }}'
-            })
-        })
-
-        /**
-         * 清除缓存
-         */
-        $('#cache-clear').on('click', function (event) {
-            event.preventDefault()
-            $.get($(this).attr('href'), {}, respond => {
-                succeed(respond.message, () => {
-                    window.location.reload()
-                })
-            })
-        })
-    </script>
 @stop

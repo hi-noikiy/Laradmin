@@ -12797,7 +12797,7 @@ a:focus {
 
 .input-group .input-group-addon {
   border-radius: 0;
-  border-color: #d2d6de;
+  border-color: transparent;
   background-color: #fff;
 }
 
@@ -18029,7 +18029,7 @@ table.text-center th {
 
 .skin-blue .sidebar-menu > li.active > a {
   color: #fff;
-  background-color: #9c27b0;
+  background-color: #00bcd4;
   border-radius: 3px;
   -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
           box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
@@ -18046,7 +18046,7 @@ table.text-center th {
 }
 
 .skin-blue .sidebar-menu > li > .treeview-menu li a:hover {
-  color: #9c27b0;
+  color: #00bcd4;
 }
 
 .skin-blue .sidebar-menu > li > .treeview-menu .active a {
@@ -18054,7 +18054,7 @@ table.text-center th {
   color: #3C4858;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: #9c27b0 !important;
+  color: #00bcd4 !important;
 }
 
 .skin-blue .sidebar a {

@@ -6,7 +6,7 @@
                     <div class="modal-body">
                         <div class="box" style="border: none;box-shadow: none;margin: 0;">
                             <div class="box-header" style="padding: 5px 10px">
-                                <h5 class="box-title"><i class="fa {{ $menu->icon }}"></i> {{ $menu->name }}的子栏目</h5>
+                                <h5 class="box-title"><i class="fa {{ $menu->icon }}"></i>&nbsp;{{ $menu->name }}&nbsp;&nbsp;的子栏目</h5>
                             </div>
                             <div class="box-body">
                                 <table class="table table-bordered">
@@ -34,7 +34,7 @@
                                             <td>{{ $childer->updated_at }}</td>
                                             <td>
                                                 @can('admin.menus.edit')
-                                                    <a class="btn btn-success btn-sm" href="{{ route('admin.menus.edit',['menu' => $childer->id]) }}" onclick="hideModal('childers{{ $menu->id }}')">
+                                                    <a class="btn btn-info btn-sm" href="{{ route('admin.menus.edit',['menu' => $childer->id]) }}" onclick="hideModal('childers{{ $menu->id }}')">
                                                         <i class="fa fa-pencil-square-o"></i> 编辑
                                                     </a>
                                                 @endcan

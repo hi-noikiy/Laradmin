@@ -3,7 +3,9 @@
 @section('main')
     <div class="box box-half">
         <div class="box-header">
-            <a href="{{ route('admin.users.index') }}" class="btn btn-back"><i class="fa fa-arrow-left"></i></a>
+            <div class="table-icon">
+                <a href="{{ route('admin.users.index') }}"><i class="fa fa-arrow-left"></i></a>
+            </div>
             <h5 class="box-title">更新用户: <strong>{{ $user->name }}</strong></h5>
         </div>
         <div class="box-body">

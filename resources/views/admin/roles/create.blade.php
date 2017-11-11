@@ -3,7 +3,9 @@
 @section('main')
     <div class="box box-primary box-half">
         <div class="box-header">
-            <a href="{{ route('admin.roles.index') }}" class="btn btn-back"><i class="fa fa-arrow-left"></i></a>
+            <div class="table-icon">
+                <a href="{{ route('admin.roles.index') }}"><i class="fa fa-arrow-left"></i></a>
+            </div>
             <h5 class="box-title">添加角色</h5>
         </div>
         <div class="box-body">
