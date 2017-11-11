@@ -24,7 +24,8 @@ Route::name('admin.')->group(function() {
     Route::middleware('authentication')->group(
         function($router) {
             $router->get('/', 'IndexController@index')->name('index');
-            $router->get('/clear', 'IndexController@clear')->name('clear');
+            $router->get('examples', 'IndexController@examples')->name('examples');
+            $router->get('clear', 'IndexController@clear')->name('clear');
 
             $router->resource('menus', 'MenusController');
 

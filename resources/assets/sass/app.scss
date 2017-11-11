@@ -6,15 +6,10 @@
 @import "iconpicker";
 
 html,body {
+  height:100% !important;
+  min-height: inherit !important;
   background: #eef5f9;
   .wrapper {
-    .main-header {
-      .navbar-static-top {
-        .navbar-nav {
-          margin-right: 50px;
-        }
-      }
-    }
     .main-sidebar {
       .sidebar {
         .sidebar-menu {
@@ -33,21 +28,42 @@ html,body {
     .content-wrapper {
       .content {
         .box {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          margin: 25px 0;
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+          border-radius: 6px;
+          color: rgba(0,0,0, 0.87);
+          background: #fff;
+          border:1px solid transparent !important;
           .box-header {
+            .table-icon {
+              float: left;
+              color: #FFFFFF;
+              background: linear-gradient(60deg, #26c6da, #00acc1);
+              box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+              margin: -30px 15px 0;
+              border-radius: 3px;
+              padding: 0;
+              font-size: 24px;
+              position: relative;
+              width: 64px;
+              height: 64px;
+              text-align: center;
+              line-height: 64px;
+              a {
+                width:100%;
+                height:100%;
+                display: inline-block;
+                color:#fff;
+              }
+            }
             .box-title {
               line-height: 30px;
-              font-size: 15px;
-              color: #667c99;
-            }
-            .btn {
-              float: right;
-              padding: 5px 10px;
-              font-size: 12px;
-              line-height: 1.5;
-              border-radius: 0px;
-              .fa {
-                margin-right:5px;
-              }
+              color: #9fadc7;
+              font-size: 18px;
+              font-weight: 300;
             }
             .btn-back {
               float: left;
@@ -56,32 +72,13 @@ html,body {
               padding: 0;
               font-size: 16px;
               .fa {
+                vertical-align: -2px;
                 margin-right:0;
               }
             }
           }
           .box-body {
             .form-group {
-              .btn {
-                padding: 7px 10px;
-                font-size: 12px;
-                line-height: 1.5;
-                border-radius: 0px;
-                .fa {
-                  margin-right: 5px;
-                }
-              }
-              .input-group {
-                .input-group-btn {
-                  .btn {
-                    padding: 7px 10px;
-                    border-radius: 0px;
-                    .fa {
-                      margin-left: 5px;
-                    }
-                  }
-                }
-              }
               .check-box {
                 margin-top: 5px;
                 label {
@@ -139,17 +136,6 @@ html,body {
                   line-height: 30px;
                   font-size: 13px;
                   text-align: center;
-                  .btn {
-                    color: #fff !important;
-                    text-decoration: none!important;
-                    padding: 5px 10px;
-                    font-size: 12px;
-                    line-height: 1.5;
-                    border-radius: 0px;
-                  }
-                  a {
-                    color: #262626;
-                  }
                   form {
                     display: inline-block;
                   }
@@ -169,6 +155,7 @@ html,body {
               margin:5px 0;
             }
             .total {
+              color: #667c99;
               display: block;
               margin: 5px 0;
               line-height: 35px;
@@ -176,42 +163,51 @@ html,body {
               float: right;
               margin-right: 25px;
             }
-            .btn {
-              color: #fff !important;
-              text-decoration: none!important;
-              padding: 5px 10px;
-              font-size: 12px;
-              line-height: 1.5;
-              border-radius: 0px;
-              margin-top: 8px;
-            }
-            .btn-group {
-              .dropdown-menu {
-                min-width: 110px;
-                box-shadow: 0 5px 20px rgba(0,34,77,.1);
-                border: 1px solid #e7eaf1;
-                border-radius: 4px;
-                li {
-                  a {
-                    height: 36px;
-                    line-height: 36px;
-                    color: #262626;
-                    padding: 0 20px;
-                    &:hover {
-                      color: #7a8599;
-                      background: #f4f8fb;
-                    }
-                    .fa {
-                      color: #9fadc7;
-                    }
-                  }
-                }
-              }
-            }
           }
         }
         .box-half {
           width:50%;
+        }
+        .navbar-nav {
+          float: inherit;
+          display: block;
+          margin-bottom: 15px;
+          padding-right: 50px;
+          li {
+            a {
+              width:42px;
+              line-height: 42px;
+              box-sizing: border-box;
+              padding: 0;
+              margin:0 15px;
+              text-align: center;
+              box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12);
+              background-color: #FFFFFF;
+              color: #999999;
+              will-change: box-shadow, transform;
+              transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+              border-radius: 99px;
+              &:hover {
+                box-shadow: 0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2);
+              }
+              img {
+                width:42px;
+                height:42px;
+                border-radius: 99px;
+              }
+            }
+            .dropdown-menu {
+              margin-top: 5px;
+              box-shadow: 0 5px 20px rgba(0,34,77,.1);
+              border: 1px solid #e7eaf1;
+              li a {
+                box-shadow: none;
+                border-radius: 0;
+                width: inherit;
+                height: inherit;
+              }
+            }
+          }
         }
       }
     }
@@ -262,15 +258,21 @@ html,body {
   }
   .footer {
     text-align: center;
-    margin-top: 50px;
+    padding-top: 50px;
     font-size:14px;
     color: #9fadc7;
+    background: #eef5f9;
     a {
       text-decoration: underline;
       color: #9fadc7;
     }
     .fa {
       margin: 0 5px;
+    }
+    p {
+      background: #eef5f9;
+      margin:0;
+      padding-bottom: 10px;
     }
   }
   .tooltip {

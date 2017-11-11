@@ -3,7 +3,9 @@
 @section('main')
     <div class="box box-primary box-half">
         <div class="box-header">
-            <a href="{{ route('admin.users.index') }}" class="btn btn-back"><i class="fa fa-arrow-left"></i></a>
+            <div class="table-icon">
+                <a href="{{ route('admin.users.index') }}"><i class="fa fa-arrow-left"></i></a>
+            </div>
             <h5 class="box-title">添加用户</h5>
         </div>
         <div class="box-body">
@@ -31,7 +33,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i>保存
+                    <button type="submit" class="btn btn-sm btn-info"><i class="fa fa-floppy-o"></i>保存
                     </button>
                 </div>
             </form>

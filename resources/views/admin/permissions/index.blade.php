@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('main')
-    <div class="box box-primary">
+    <div class="box">
         <div class="box-header">
             <h5 class="box-title">权限管理</h5>
             @can('admin.permissions.create')
-                <a class="btn btn-primary" href="{{ route('admin.permissions.create') }}"><i class="fa fa-plus"></i>添加</a>
+                <a class="btn btn-info btn-sm pull-right" href="{{ route('admin.permissions.create') }}"><i class="fa fa-plus"></i>添加</a>
             @endcan
         </div>
         <div class="box-body">
@@ -39,13 +39,13 @@
                         <td>{{ hommization($permission->updated_at) }}</td>
                         <td>
                             @can('admin.permissions.edit')
-                                <a class="btn btn-success"
+                                <a class="btn btn-info btn-sm"
                                    href="{{ route('admin.permissions.edit',['permission' => $permission->id]) }}">
                                     <i class="fa fa-pencil-square-o"></i> 编辑
                                 </a>
                             @endcan
                             @can('admin.permissions.destroy')
-                                <a href="{{ route('admin.permissions.destroy',['permission' => $permission->id]) }}" class="btn btn-danger destroy">
+                                <a href="{{ route('admin.permissions.destroy',['permission' => $permission->id]) }}" class="btn btn-sm btn-danger destroy">
                                     <i class="fa fa-trash-o"></i>
                                     删除
                                 </a>
@@ -58,10 +58,10 @@
         </div>
         <div class="box-footer clearfix">
             @can('admin.permissions.batch')
-                <button class="btn btn-primary select-all"><i class="fa fa-check"></i> 全选</button>
+                <button class="btn btn-info btn-sm select-all"><i class="fa fa-check"></i> 全选</button>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">操作</button>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn btn-sm btn-info">操作</button>
+                    <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">

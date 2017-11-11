@@ -1,11 +1,14 @@
 @extends('admin.layouts.app')
 
 @section('main')
-    <div class="box box-primary">
+    <div class="box">
         <div class="box-header">
+            <div class="table-icon">
+                <i class="fa fa-table"></i>
+            </div>
             <h5 class="box-title">用户管理</h5>
             @can('admin.users.create')
-                <a class="btn btn-primary" href="{{ route('admin.users.create') }}"><i class="fa fa-plus"></i>添加</a>
+                <a class="btn btn-info btn-sm pull-right" href="{{ route('admin.users.create') }}"><i class="fa fa-plus"></i>添加</a>
             @endcan
         </div>
         <div class="box-body">
@@ -35,12 +38,12 @@
                         <td>{{ $user->updated_at }}</td>
                         <td>
                             @can('admin.users.edit')
-                                <a class="btn btn-success" href="{{ route('admin.users.edit',['user' => $user->id]) }}">
+                                <a class="btn btn-info btn-sm" href="{{ route('admin.users.edit',['user' => $user->id]) }}">
                                     <i class="fa fa-pencil-square-o"></i> 编辑
                                 </a>
                             @endcan
                             @can('admin.users.destroy')
-                                <a href="{{ route('admin.users.destroy',['user' => $user->id]) }}" class="btn btn-danger destroy">
+                                <a href="{{ route('admin.users.destroy',['user' => $user->id]) }}" class="btn btn-danger btn-sm destroy">
                                     <i class="fa fa-trash-o"></i>
                                     删除
                                 </a>
@@ -53,10 +56,10 @@
         </div>
         <div class="box-footer clearfix">
             @can('admin.users.batch')
-                <button class="btn btn-primary select-all"><i class="fa fa-check"></i> 全选</button>
+                <button class="btn btn-info btn-sm select-all"><i class="fa fa-check"></i> 全选</button>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">操作</button>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn btn-sm btn-info">操作</button>
+                    <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">

@@ -4,69 +4,11 @@
 
 @section('body')
     <div class="wrapper">
-        <header class="main-header">
-            <a href="{{ route('admin.index') }}" class="logo">
-                <span class="logo-mini"><b>T</b>a</span>
-                <span class="logo-lg"><b>{{ config('app.name') }}</b></span>
-            </a>
-            <nav class="navbar navbar-static-top">
-                <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only"></span>
-                </a>
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        @can('admin.clear')
-                            <li class="dropdown">
-                                <a href="{{ route('admin.clear') }}" id="cache-clear"><i class="fa fa-bolt"></i></a>
-                            </li>
-                        @endcan
-                        <li class="dropdown user user-menu">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="user-image">
-                                <span class="hidden-xs">{{ auth()->user()->name }}</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="user-header">
-                                    <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="img-circle">
-                                    <p>
-                                        {{ auth()->user()->name }}
-                                        <small>注册于 {{ auth()->user()->created_at }}</small>
-                                    </p>
-                                </li>
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        @can('admin.users.edit')
-                                            <a href="{{ route('admin.users.edit',['user' => auth()->user()->id]) }}"
-                                               class="btn btn-default btn-flat"><i class="fa fa-pencil-square-o"></i> 编辑
-                                            </a>
-                                        @endcan
-                                    </div>
-                                    <div class="pull-right">
-                                        @can('admin.auth.logout')
-                                            <a href="{{ route('admin.auth.logout') }}" id="logout"
-                                               class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> 注销
-                                            </a>
-                                        @endcan
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
         <aside class="main-sidebar">
             <section class="sidebar">
                 <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="img-circle" alt="User Image">
-                    </div>
-                    <div class="pull-left info">
-                        <p>{{ auth()->user()->name }}</p>
-                        <a href="javascript:void(0);"><i class="fa fa-circle text-success"></i> Online</a>
+                    <div class="image">
+                        <h1 class="logo"></h1>
                     </div>
                 </div>
                 @include('admin.layouts.menus')
@@ -74,6 +16,32 @@
         </aside>
         <div class="content-wrapper" id="main">
             <section class="content">
+                <ul class="nav navbar-nav">
+                    <li class="pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <img src="http://owst2hgsv.bkt.clouddn.com/boy.jpg" class="user-image">
+                        </a>
+                        <ul class="dropdown-menu">
+                            @can('admin.users.edit')
+                                <li><a href="{{ route('admin.users.edit',['user' => auth()->user()->id]) }}"><i
+                                                class="fa fa-cog"></i>设置</a></li>
+                            @endcan
+                            @can('admin.auth.logout')
+                                <li><a href="{{ route('admin.auth.logout') }}" id="logout"><i
+                                                class="fa fa-sign-out"></i> 注销</a></li>
+                            @endcan
+                        </ul>
+                    </li>
+                    @can('admin.clear')
+                        <li class="pull-right">
+                            <a href="{{ route('admin.clear') }}" id="cache-clear"><i class="fa fa-bolt"></i></a>
+                        </li>
+                    @endcan
+                    <li class="pull-right">
+                        <a href="{{ route('admin.examples') }}" id="cache-clear"><i class="fa fa-bookmark"></i></a>
+                    </li>
+
+                </ul>
                 @yield('main')
             </section>
         </div>

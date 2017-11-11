@@ -21,7 +21,7 @@
                     <textarea name="describe" rows="2" class="form-control">{{ $permission->describe }}</textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i>保存
+                    <button type="submit" class="btn btn-sm btn-info"><i class="fa fa-floppy-o"></i>保存
                     </button>
                 </div>
             </form>

@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('main')
-    <div class="box box-primary box-half">
+    <div class="box box-half">
         <div class="box-header">
             <a href="{{ route('admin.users.index') }}" class="btn btn-back"><i class="fa fa-arrow-left"></i></a>
             <h5 class="box-title">更新用户: <strong>{{ $user->name }}</strong></h5>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i>保存
+                    <button type="submit" class="btn btn-sm btn-info"><i class="fa fa-floppy-o"></i>保存
                     </button>
                 </div>
             </form>

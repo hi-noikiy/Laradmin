@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('main')
-    <div class="box box-primary">
+    <div class="box">
         <div class="box-header">
             <h5 class="box-title">菜单管理</h5>
             @can('admin.menus.create')
-                <a class="btn btn-primary" href="{{ route('admin.menus.create') }}"><i class="fa fa-plus"></i>添加</a>
+                <a class="btn btn-sm btn-info pull-right" href="{{ route('admin.menus.create') }}"><i class="fa fa-plus"></i>添加</a>
             @endcan
         </div>
         <div class="box-body">
@@ -43,12 +43,12 @@
                         <td>{{ $menu->updated_at }}</td>
                         <td>
                             @can('admin.menus.edit')
-                                <a class="btn btn-success" href="{{ route('admin.menus.edit',['menu' => $menu->id]) }}">
+                                <a class="btn btn-sm btn-info" href="{{ route('admin.menus.edit',['menu' => $menu->id]) }}">
                                     <i class="fa fa-pencil-square-o"></i> 编辑
                                 </a>
                             @endcan
                             @can('admin.menus.destroy')
-                                <a href="{{ route('admin.menus.destroy',['menu' => $menu->id]) }}" class="btn btn-danger destroy">
+                                <a href="{{ route('admin.menus.destroy',['menu' => $menu->id]) }}" class="btn btn-sm btn-danger destroy">
                                     <i class="fa fa-trash-o"></i>
                                     删除
                                 </a>

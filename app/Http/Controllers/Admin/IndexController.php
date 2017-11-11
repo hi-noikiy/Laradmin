@@ -17,4 +17,9 @@ class IndexController extends Controller
         cache()->clear();
         return succeed('缓存清除成功。');
     }
+
+    public function examples()
+    {
+        return view('admin.index.examples');
+    }
 }

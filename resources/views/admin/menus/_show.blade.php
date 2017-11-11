@@ -34,12 +34,12 @@
                                             <td>{{ $childer->updated_at }}</td>
                                             <td>
                                                 @can('admin.menus.edit')
-                                                    <a class="btn btn-success" href="{{ route('admin.menus.edit',['menu' => $childer->id]) }}" onclick="hideModal('childers{{ $menu->id }}')">
+                                                    <a class="btn btn-success btn-sm" href="{{ route('admin.menus.edit',['menu' => $childer->id]) }}" onclick="hideModal('childers{{ $menu->id }}')">
                                                         <i class="fa fa-pencil-square-o"></i> 编辑
                                                     </a>
                                                 @endcan
                                                 @can('admin.menus.destroy')
-                                                    <a href="{{ route('admin.menus.destroy',['menu' => $childer->id]) }}" class="btn btn-danger destroy" onclick="hideModal('childers{{ $menu->id }}')">
+                                                    <a href="{{ route('admin.menus.destroy',['menu' => $childer->id]) }}" class="btn btn-danger btn-sm destroy" onclick="hideModal('childers{{ $menu->id }}')">
                                                         <i class="fa fa-trash-o"></i>
                                                         删除
                                                     </a>
