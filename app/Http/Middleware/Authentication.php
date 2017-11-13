@@ -16,11 +16,11 @@ class Authentication
     public function handle($request, Closure $next)
     {
         return auth()->check()
-            ? (laradmin('authentication')
+            ? (!config('app.debug')
                 ? (auth()->user()->can($request->route()->getName())
                     ? $next($request)
                     : ($request->ajax()
-                        ? failed('无权进行此操作！')
+                        ? failed('unauthorized.')
                         : response()->view('admin.errors.unauthentication')))
                 : $next($request))
             : redirect()->route('admin.auth.login');

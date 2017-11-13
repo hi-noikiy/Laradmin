@@ -11,7 +11,7 @@ class MenuBlade
     {
         \Illuminate\Support\Facades\Blade::if ('menu',
             function(Menu $menu) : bool {
-                return laradmin('authentication')
+                return !config('app.debug')
                     ? (Route::has($menu->slug)
                         ? auth()->user()->can($menu->slug)
                         : (($menu->childers->count()

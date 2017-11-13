@@ -4,7 +4,7 @@
     <div class="error-page">
         <h2 class="headline text-yellow"> 401</h2>
         <div class="error-content">
-            <h3><i class="fa fa-warning text-yellow"></i>&nbsp;&nbsp;你无权进行此操作。</h3>
+            <h3><i class="fa fa-warning text-yellow"></i>&nbsp;&nbsp;Unauthorized!</h3>
             <br>
             <br>
             <a href="javascript:history.go(-1);">

@@ -42,8 +42,8 @@
 
                 </ul>
                 @yield('main')
+                @include('admin.layouts.footer')
             </section>
         </div>
-        @include('admin.layouts.footer')
     </div>
 @stop
