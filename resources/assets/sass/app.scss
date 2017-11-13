@@ -294,4 +294,7 @@ html,body {
       font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

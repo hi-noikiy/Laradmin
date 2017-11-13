@@ -32,10 +32,10 @@ class MenusTableSeeder extends Seeder
 
         $menus = [
             [
-                'name'     => '用户管理',
-                'describe' => '用户管理',
-                'icon'     => 'fa-user-o',
-                'slug'     => 'admin.users.index',
+                'name'     => '菜单管理',
+                'describe' => '菜单管理',
+                'icon'     => 'fa-bars',
+                'slug'     => 'admin.menus.index',
                 'top_id'   => $cog->id,
             ],
             [
@@ -53,12 +53,14 @@ class MenusTableSeeder extends Seeder
                 'top_id'   => $cog->id,
             ],
             [
-                'name'     => '菜单管理',
-                'describe' => '菜单管理',
-                'icon'     => 'fa-bars',
-                'slug'     => 'admin.menus.index',
+                'name'     => '用户管理',
+                'describe' => '用户管理',
+                'icon'     => 'fa-user-o',
+                'slug'     => 'admin.users.index',
                 'top_id'   => $cog->id,
             ],
+
+
         ];
 
         foreach ($menus as $index => $menu) {

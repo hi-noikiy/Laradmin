@@ -30,28 +30,12 @@ class User extends Authenticatable
     ];
 
     /**
+     * 修改器，对密码进行加密。
+     *
      * @param $password
      */
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
-    }
-
-    /**
-     * @param $date
-     * @return mixed
-     */
-    public function getCreatedAtAttribute($date)
-    {
-        return $this->hommization($date);
-    }
-
-    /**
-     * @param $date
-     * @return mixed
-     */
-    public function getUpdatedAtAttribute($date)
-    {
-        return $this->hommization($date);
     }
 }
